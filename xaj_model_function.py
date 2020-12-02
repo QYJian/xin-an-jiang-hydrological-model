@@ -132,7 +132,6 @@ def antecedent_soil_moisture(Kc, Um, Lm, C, Wm, B, Im, WInitialDay, Eall, DayPre
             WFinalDay[1] = WlDay[i + 1]
             WFinalDay[2] = WdDay[i + 1]
 
-
     return WFinalDay
 
 
@@ -188,6 +187,7 @@ def calc_evaporation_potential_four(Eall, timeInterval, date, precip, E1, E2, E3
     Ep = Ep * timeInterval / 24
 
     return Ep
+
 
 def calc_evaporation_potential_five(Eall, timeInterval, date, precip, E1, E2, E3, E4):
     Month = datetime.strptime(date, "%Y-%m-%d %H:%M:%S").month
@@ -325,7 +325,6 @@ def calc_runoff(Kc, Um, Lm, C, Wm, B, Im, InitialW, timeInterval, Eall, date, pr
                             Wl[i + 1] = 0
                             Wd[i + 1] = Wd[i] - Ed[i]
 
-
             if Wu[i + 1] < 0:
                 Wu[i + 1] = 0.0
             if Wl[i + 1] < 0:
@@ -339,7 +338,6 @@ def calc_runoff(Kc, Um, Lm, C, Wm, B, Im, InitialW, timeInterval, Eall, date, pr
                 Wl[i + 1] = Lm
             if Wd[i + 1] > Dm:
                 Wd[i + 1] = Dm
-
 
     Ev = []
     for i in range(len(Eu)):
@@ -510,6 +508,7 @@ def surface_flow_concentration(Ci, Cg, timeInterval, Area, runoffIm, Rs, Ri, Rg)
 
             if QR[i] < 0:
                 QR[i] = 0
+    
     return QR
 
 
